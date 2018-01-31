@@ -102,7 +102,7 @@ def fine_tuning(ft_model, X_train, y_train, X_valid, y_valid, freeze_layer, batc
     early_stop = EarlyStopping(monitor='val_loss', patience=2)
     model_check = ModelCheckpoint(path_logs, monitor='val_loss', save_best_only=True)
     
-    ft_model_hiostory = ft_model.fit(x=X_train, y=y_train, batch_size=batch_size, epochs=epochs, 
+    ft_model_history = ft_model.fit(x=X_train, y=y_train, batch_size=batch_size, epochs=epochs, 
                                      validation_data=(X_valid, y_valid), callbacks=[early_stop, model_check])
     
-    return ft_model,ft_model_hiostory
+    return ft_model, ft_model_history
