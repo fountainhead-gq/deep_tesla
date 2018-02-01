@@ -19,8 +19,7 @@ from keras.callbacks import Callback, CSVLogger, History, ModelCheckpoint, Early
 # NVIDIA model
 def nvidia_model(img_height, img_width, img_channels):
     model = Sequential()
-    model.add(Lambda(lambda x: x/255.-0.5, input_shape=(img_height, img_width, img_channels)))
-    # model.add(Lambda(lambda x: x/255., input_shape=(img_height, img_width, img_channels)))
+    model.add(Lambda(lambda x: x/255., input_shape=(img_height, img_width, img_channels)))
     # Cov layers
     model.add(Conv2D(24, kernel_size=(5, 5), strides=(2,2), padding='valid', activation='relu'))
     model.add(Conv2D(36, kernel_size=(5, 5), strides=(2,2), padding='valid', activation='relu'))
